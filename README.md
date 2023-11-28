@@ -888,13 +888,43 @@ docker run --rm -it -v "$PWD/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro" -
 
 
 
+- to build image 
+```
+docker build -t express-node-app .
+```
+
+
+- create a container from image 
+```
+`docker run --name yourname docker_image`
+```
+
+- remove container 
+
+```
+docker rm "container-name" -f
+```
+
+
+- to see all running containers
+```
+docker ps 
+```
+
+
+- create a container from image  and still use terminal use flag -d  not showing  logs for container
+```
+`docker run --name yourname -d docker_image`
+```
+
+- port forward 
+```
+  docker run --name express-node-app-container -d -p 4000:4000 express-node-app
+```
 
 
 
-
-
-
-
+-run 
 
 - make sync from local to container hot reload  (bind mount) 2 way binding 
 ```
@@ -921,16 +951,9 @@ docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/a
 docker run --name express-node-app-container -v ${pwd}:/app:ro -v /app/node_modules -d -p 4000:4000 express-node-app
 ```
 
-- remove container 
 
-```
-docker rm express-node-app-container -f
-```
 
-- to see running containers
-```
-docker ps 
-```
+
 
 - to execute command inside container
 ```
@@ -946,10 +969,7 @@ docker logs express-node-appcontainer
 
 
 
-- to build image 
-```
-docker build -t express-node-app .
-```
+
 
 
 
