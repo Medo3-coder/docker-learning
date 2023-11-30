@@ -920,6 +920,20 @@ docker rm "container-name" -f
 docker ps 
 ```
 
+- to run a container
+
+```
+  docker container  start express-node-app-container
+```
+
+- to stop a container
+
+```
+docker container stop express-node-app-container
+```
+
+
+
 
 - create a container from image  and still use terminal use flag -d  not showing  logs for container
 ```
@@ -930,6 +944,12 @@ docker ps
 ```
   docker run --name express-node-app-container -d -p 4000:4000 express-node-app
 ```
+
+- to execute command inside container   (it) => 'interactive terminal'
+```
+docker exec -it express-node-app-container  bash    
+```
+
 
 
 
@@ -959,16 +979,6 @@ docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/a
 ```
 docker run --name express-node-app-container -v ${pwd}:/app:ro -v /app/node_modules -d -p 4000:4000 express-node-app
 ```
-
-
-
-
-
-- to execute command inside container
-```
-docker exec -it express-node-appcontainer  bash  
-```
-
 
 
 - to see logs in container
