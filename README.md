@@ -147,7 +147,7 @@ $ docker version --format '{{json .}}'
 [Your basic isolated Docker process](http://etherealmind.com/basics-docker-containers-hypervisors-coreos/). Containers are to Virtual Machines as threads are to processes. Or you can think of them as chroots on steroids.
 
 ## Example in how docker File look like : 
-<img src="/image/docker content exmaple.png" alt="docker content exmaple.png">
+<img src="/images/docker content exmaple.png" alt="docker content exmaple.png">
 
 ### Lifecycle
 
