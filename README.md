@@ -273,6 +273,12 @@ Images are just [templates for docker containers](https://docs.docker.com/engine
 * [`docker images`](https://docs.docker.com/engine/reference/commandline/images) shows all images.
 * [`docker import`](https://docs.docker.com/engine/reference/commandline/import) creates an image from a tarball.
 * [`docker build`](https://docs.docker.com/engine/reference/commandline/build) creates image from Dockerfile.
+
+## docker build example 
+
+ <img src="/images/Images & Containers.png">
+
+
 * [`docker commit`](https://docs.docker.com/engine/reference/commandline/commit) creates image from a container, pausing it temporarily if it is running.
 * [`docker rmi`](https://docs.docker.com/engine/reference/commandline/rmi) removes an image.
 * [`docker load`](https://docs.docker.com/engine/reference/commandline/load) loads an image from a tar archive as STDIN, including images and tags (as of 0.7).
