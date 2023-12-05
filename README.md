@@ -963,7 +963,7 @@ docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/a
 
 
 
- - to get rid of write full path use ${pwd}
+ - to get rid of write full path use ${pwd} in hot reload   (-v) stands for volumes
  ```
 docker run --name express-node-app-container -v ${pwd}:/app:ro -d -p 4000:4000 express-node-app 
 ```
