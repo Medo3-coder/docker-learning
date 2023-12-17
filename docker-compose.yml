@@ -1,3 +1,27 @@
+
+# Depends_on Control Services Startup Order
+# Don't Forget Set Environment Variables Before Run This yml file
+# APP_ENV=development || production
+# windows >> set APP_ENV=development
+
+
+version: "3"
+services: 
+       node-app: 
+           container_name: express-node-app-container
+           build: .
+           volumes:  
+             - ./src:/app/src:ro
+           ports: 
+             - "4000:4000"
+           env_file:  
+             - ./.env
+
+              #       env_file:     if i have alot for environment variables
+              #         - ./.env
+
+
+
 # version: "3"
 # services: 
 #     node-app:

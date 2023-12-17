@@ -956,35 +956,35 @@ docker exec -it express-node-app-container  bash
 -run 
 
 - make sync from local to container hot reload  (bind mount) 2 way binding 
-```
-docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/app -d -p 4000:4000 express-node-app
+  ```
+  docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/app -d -p 4000:4000 express-node-app
 
-```
+  ```
 
 
 
- - to get rid of write full path use ${pwd} in hot reload   (-v) stands for volumes
- ```
-docker run --name express-node-app-container -v ${pwd}:/app:ro -d -p 4000:4000 express-node-app 
-```
+- to get rid of write full path use ${pwd} in hot reload   (-v) stands for volumes   (ro)  -> read Only
+    ```
+  docker run --name express-node-app-container -v ${pwd}:/app:ro -d -p 4000:4000 express-node-app 
+  ```
 
 
  - 1 way binding if change happens in container read only 
-```
-docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/app:ro -d -p 4000:4000 express-node-app
-```
+  ```
+  docker run --name express-node-appcontainer -v D:\Docker-in-practice\node-app:/app:ro -d -p 4000:4000 express-node-app
+  ```
 
 
 -  anonymous volumes -> هتحدد فولدر مش هيحصل في تغير في الكونتيتر مهما حصل في الالبيكشن 
-```
-docker run --name express-node-app-container -v ${pwd}:/app:ro -v /app/node_modules -d -p 4000:4000 express-node-app
-```
+  ```
+  docker run --name express-node-app-container -v ${pwd}:/app:ro -v /app/node_modules -d -p 4000:4000 express-node-app
+  ```
 
 
 - to see logs in container
-```
-docker logs express-node-appcontainer
-```
+    ```
+    docker logs express-node-appcontainer
+    ```
 
 
 
@@ -1014,13 +1014,29 @@ can spin everything up or tear it all down.
 - development
  docker-compose -f docker-compose.dev.yml up -d
 
+ -set environment variable 
+ ```
+  docker run --name {container-name} -v {pwd}/src:/app/src:ro  --env PORT=4000 --NODE_ENV=development -d -p 4000:4000 my-node-app
+ ```
+
+## if you need to pass all Environment variables from file 
+ 1- create env file 
+ 2 - and use cmd as following
+
+ ```
+ docker run --name {container-name} -v {pwd}/src:/app/src:ro  {--env-file ./.env}  -d -p 4000:4000 my-node-app
+ ```
+
+
 
 - run main docker-compose and choose which environment to run prod/dev  ep 11
 
 
 
-  - to take last changes from production 
+- to take last changes from production 
+  ```
  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+  ```
 
 
  ## context 
