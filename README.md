@@ -1034,12 +1034,12 @@ can spin everything up or tear it all down.
 
 
 - to take last changes from production 
-  ```
- docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
-  ```
+    ```
+  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+    ```
 
 
- ## context 
+## context 
   context defines either a path to a directory containing a Dockerfile,
 
 
@@ -1050,3 +1050,21 @@ can spin everything up or tear it all down.
 # 		then npm install --only=production; \
 # 		else npm install; \
 # 		fi
+
+
+## in multi stage environment we need to specify the docker compose file 
+
+ ```
+  docker-compose -f {file_name} up -d   
+
+  docker-compose -f docker-compose.dev.yml up -d   
+ ```
+
+
+ ## if we have 2 environment dev and prod we need to take the commen instructions to {docker-compose.yml} file 
+ ## and run docker-compose.yml and the environment we need next  
+
+  * we use dev environment here 
+    ```
+    docker-compose -f docker-compose.yml  -f docker-compose.dev.yml up -d 
+    ```

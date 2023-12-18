@@ -7,3 +7,11 @@
 #       environment: 
 #         - NODE_ENV=production
 #       command: npm start
+
+
+
+version: "3"
+services: 
+    node-app:
+      environment: 
+        - NODE_ENV=production
