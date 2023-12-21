@@ -1068,3 +1068,37 @@ can spin everything up or tear it all down.
     ```
     docker-compose -f docker-compose.yml  -f docker-compose.dev.yml up -d 
     ```
+
+ ## to make follow up logs u can add this flag 
+ 
+  ```
+  docker logs express-node-app-container -f
+  ```   
+
+
+  ## bug with mongoose
+  I faced same issue when I was trying to run docker container. Then I searched it on the internet. On the mongodb community chat one person has mentioned that if you will change mongoose version to "npm i mongoose@7.6.3" then it would work. And then i remove my docker created image and changed mongosse version to 7.6.3. Again i created docker image of express server project which is connected with mongo cloud cluster and now it is working fine
+
+
+## docker inspect 
+ ```
+  docker inspect {container name}
+ ```
+
+## to get some data about network 
+
+```
+docker network inspect {network name}
+```
+
+## to execute a command in mongo in container use 
+```
+docker exec -it docker-learning-mongo-1 mongosh
+```
+
+
+## to authentiacte to mongosh u need to use this commend 
+
+```
+docker exec -it (docker-learning-mongo-1) mongosh -u root -p example
+```

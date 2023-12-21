@@ -12,7 +12,13 @@ services:
            ports: 
              - "4000:4000"
            env_file:  
-             - ./.env
+             - ./.env    
+       mongo:
+          image: mongo
+          restart: always
+          environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example     
 
 
 
