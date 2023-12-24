@@ -1,12 +1,24 @@
 const express = require('express');
 const mongoose =  require('mongoose');
+const redis = require('redis');
 
 //init app 
 const port = process.env.PORT || 4000;
 const app = express();
 
-//connect 
+//connect to redis db
+const REDIS_PORT  = 6379;
+const REDIS_host = 'redis';
+const redisClient = redis.createClient({
+    url: `redis://${REDIS_host}:${REDIS_PORT}`
+});
 
+redisClient.on('error', err => console.log('Redis Client Error', err))
+  .connect(console.log('connected to redis...',));
+
+
+
+//connect: db
 const DB_USER = 'root';
 const DB_PASSWORD = 'example';
 const DB_PORT = 27017
@@ -17,8 +29,17 @@ mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err
 
 
 app.get('/', (req, res) => {
+    redisClient.set('products' , 'products......');
     res.send("<h1> hello tresmerge dev    </h1>"); 
+});
+
+
+
+app.get('/data', async (req, res) => {
+    const products = await  redisClient.get('products');
+    res.send(`<h1> hello tresmerge dev</h1> <h2>${products}</h2>`); 
 })
+
 app.listen(port, () => console.log(`listening on port : ${port}`));
 
 
