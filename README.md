@@ -1102,3 +1102,20 @@ docker exec -it docker-learning-mongo-1 mongosh
 ```
 docker exec -it (docker-learning-mongo-1) mongosh -u root -p example
 ```
+
+## delete all volumes 
+ 
+ ```
+ docker volume prune
+ ```
+
+## if u want to stop the container and remove all volumes related to it use {-v} flag 
+```
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v
+```
+
+
+### not in mongo-express image 
+
+- Server is open to allow connections from anyone (0.0.0.0)
+- basicAuth credentials are "admin:pass", it is recommended you change this in your config.js!
