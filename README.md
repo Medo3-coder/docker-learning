@@ -1119,3 +1119,13 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -v
 
 - Server is open to allow connections from anyone (0.0.0.0)
 - basicAuth credentials are "admin:pass", it is recommended you change this in your config.js!
+
+
+## to adjust file permission on windows
+
+icacls .\private.key /inheritance:r
+icacls .\private.key /grant:r "%username%":"(R)"
+
+
+## install docker compose for ubuntu 
+https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04
