@@ -9,19 +9,19 @@ const app = express();
 
 
 //connect: to postgres db
-const DB_USER = 'root';
-const DB_PASSWORD = 'example';
-const DB_PORT = 5432
-// const DB_HOST = '172.18.0.2';
-const DB_HOST = 'postgres'
-const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
+// const DB_USER = 'root';
+// const DB_PASSWORD = 'example';
+// const DB_PORT = 5432
+// // const DB_HOST = '172.18.0.2';
+// const DB_HOST = 'postgres'
+// const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
 
-const client = new Client({
-    connectionString: URI,
-  });
+// const client = new Client({
+//     connectionString: URI,
+//   });
  
-client.connect().then(()=> console.log('connected to postgres database'))
-.catch((err) => console.log("failed to connect to database: " , err));
+// client.connect().then(()=> console.log('connected to postgres database'))
+// .catch((err) => console.log("failed to connect to database: " , err));
 
 
 //connect to redis db                // https://www.npmjs.com/package/redis
@@ -36,14 +36,14 @@ redisClient.on('error', err => console.log('Redis Client Error', err))
 
 
 
-//connect: mongo db
-// const DB_USER = 'root';
-// const DB_PASSWORD = 'example';
-// const DB_PORT = 27017
-// // const DB_HOST = '172.18.0.2';
-// const DB_HOST = 'mongo'
-// const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
-// mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err) => console.log("failed to connect to database: " , err))
+// connect: mongo db
+const DB_USER = 'root';
+const DB_PASSWORD = 'example';
+const DB_PORT = 27017
+// const DB_HOST = '172.18.0.2';
+const DB_HOST = 'mongo'
+const URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}`;
+mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err) => console.log("failed to connect to database: " , err))
 
 
 app.get('/', (req, res) => {
