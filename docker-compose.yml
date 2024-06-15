@@ -1,21 +1,14 @@
-
-# Depends_on Control Services Startup Order
-# Don't Forget Set Environment Variables Before Run This yml file
-# APP_ENV=development || production
-# windows >> set APP_ENV=development
-
-
-version: "3"
+version: "3.8"
 services: 
     node-app: 
         container_name: express-node-app-container
+        build: .
         ports: 
           - "4000:4000"
         env_file:  
           - ./.env   
         depends_on:
-          # - mongo 
-          # - postgres
+          - mongo 
           - redis
 
     # postgres:
@@ -26,6 +19,7 @@ services:
     #     POSTGRES_PASSWORD: example    
     #   volumes: 
     #       - postgres-db:/var/lib/postgresql/data
+
     mongo:
         image: mongo
         restart: always
@@ -34,6 +28,7 @@ services:
         environment:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example   
+
     # mongo-express:
     #   image: mongo-express
     #   restart: always
@@ -61,5 +56,3 @@ services:
 volumes:
       mongo-db:
       # postgres-db:
-           
-
