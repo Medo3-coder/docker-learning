@@ -18,22 +18,22 @@ services:
           - postgres
           - redis
 
-    postgres:
-      image: postgres
-      restart: always
-      environment:
-        POSTGRES_USER: root
-        POSTGRES_PASSWORD: example    
-      volumes: 
-          - postgres-db:/var/lib/postgresql/data
-    # mongo:
-    #     image: mongo
-    #     restart: always
-    #     volumes:
-    #        - mongo-db:/data/db
-    #     environment:
-    #       MONGO_INITDB_ROOT_USERNAME: root
-    #       MONGO_INITDB_ROOT_PASSWORD: example   
+    # postgres:
+    #   image: postgres
+    #   restart: always
+    #   environment:
+    #     POSTGRES_USER: root
+    #     POSTGRES_PASSWORD: example    
+    #   volumes: 
+    #       - postgres-db:/var/lib/postgresql/data
+    mongo:
+        image: mongo
+        restart: always
+        volumes:
+           - mongo-db:/data/db
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example   
     # mongo-express:
     #   image: mongo-express
     #   restart: always
