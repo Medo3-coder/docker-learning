@@ -1129,3 +1129,8 @@ icacls .\private.key /grant:r "%username%":"(R)"
 
 ## install docker compose for ubuntu 
 https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-and-docker-compose-for-Ubuntu-20-04
+
+
+
+## when i need to connect to docker
+$ ssh -i EC2-docker.pem ubuntu@16.171.133.147
