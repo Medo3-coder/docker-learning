@@ -48,7 +48,7 @@ mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err
 
 app.get('/', (req, res) => {
     redisClient.set('products' , 'products......');
-    res.send("<h1> hello tresmerge from AWS  </h1>"); 
+    res.send("<h1> hello tresmerge from AWS  Using docker hub</h1>"); 
 });
 
 
@@ -65,3 +65,7 @@ app.listen(port, () => console.log(`listening on port : ${port}`));
 
 
 // "start-dev": "nodemon --legacy-watch src/index.js"
+
+
+
+// build docker images to Amazon Elastic Container Registry  https://aws.amazon.com/ecr/ and pull image to server
