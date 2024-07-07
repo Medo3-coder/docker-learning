@@ -1133,4 +1133,13 @@ https://support.netfoundry.io/hc/en-us/articles/360057865692-Installing-Docker-a
 
 
 ## when i need to connect to docker
-$ ssh -i EC2-docker.pem ubuntu@16.171.133.147
+ ssh -i EC2-docker.pem ubuntu@16.171.133.147
+
+
+## to push the docker image to docker hub 
+
+docker push medo077/docker-learning:tagname 
+
+## or if using docker-compose 
+
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml push {service image}

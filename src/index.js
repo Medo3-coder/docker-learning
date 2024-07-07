@@ -48,7 +48,7 @@ mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err
 
 app.get('/', (req, res) => {
     redisClient.set('products' , 'products......');
-    res.send("<h1> hello tresmerge from AWS  Using docker hub</h1>"); 
+    res.send("<h1> hello tresmerge</h1>"); 
 });
 
 
