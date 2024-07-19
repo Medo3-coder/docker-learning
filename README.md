@@ -1143,3 +1143,7 @@ docker push medo077/docker-learning:tagname
 ## or if using docker-compose 
 
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml push {service image}
+
+
+## using load balancer 
+ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --scale node-app

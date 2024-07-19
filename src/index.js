@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose =  require('mongoose');
 const redis = require('redis');
 const {Client} = require('pg');
+const os = require('os');
 //init app 
 const port = process.env.PORT || 4000;
 const app = express();
@@ -48,6 +49,7 @@ mongoose.connect(URI).then(()=> console.log('connected to database')).catch((err
 
 app.get('/', (req, res) => {
     redisClient.set('products' , 'products......');
+    console.log(`traffic from ${os.hostname}`);
     res.send("<h1> hello tresmerge</h1>"); 
 });
 
